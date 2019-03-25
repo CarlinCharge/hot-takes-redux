@@ -12,7 +12,9 @@ export const signIn = () => {
 export const signOut = () => {
   return (dispatch) => {
     dispatch({type: 'ATTEMPTING_SIGNOUT' });
-    dispatch(signedOut());
+    auth.signOut().then(() => {
+      dispatch(signedOut());
+    });
   };
 };
 
